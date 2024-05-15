@@ -75,6 +75,20 @@ print(f"OneR_Accuracy: {best_accuracy}")     # OneR_Accuracy: 0.1431240120706998
 best_feature_name = vectorizer.get_feature_names_out()[best_feature]
 print(f"The best feature by OneR is: {best_feature_name}")
 
+    # 使用混淆矩阵来评估结果 Используйте матрицу путаницы для оценки результатов
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+    # 计算混淆矩阵
+conf_matrix = confusion_matrix(y_test, best_predictions)
+    # 绘制混淆矩阵
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
+plt.xlabel('Predicted Label')
+plt.ylabel('True Label')
+plt.title('Confusion Matrix')
+plt.show()
+
 
 
 
